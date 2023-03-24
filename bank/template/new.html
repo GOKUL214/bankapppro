@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'home' %}">ABC BANK</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+   {% if user.is_authenticated %}
+     <li class="form_name">Hello  {{user.username}}</li>
+      {% endif %}
+
+
+  </div>
+</nav>
+<form>
+            {% csrf_token %}
+
+        </form>
+<div class="container">
+
+        <h1 style="text-align: center;margin-top: 31px;">Tips on Getting a Loan</h1><br>
+    <div class="row">
+        <p style="padding-top: 20px;">In order to qualify for a loan, prospective borrowers need to show that they have the ability and financial discipline to repay the lender. There are several factors that lenders consider when deciding if a particular borrower is worth the risk:
+<ul>
+        <li><b>Income:</b> For larger loans, lenders may require a certain income threshold, thereby ensuring that the borrower will have no trouble making payments. They may also require several years of stable employment, especially in the case of home mortgages.</li>
+        <li><b>Credit Score:</b> A credit score is a numerical representation of a person's creditworthiness, based on their history of borrowing and repayment. Missed payments and bankruptcies can cause serious damage to a person's credit score.</li>
+        <li><b>Debt-to-Income Ratio:</b> In addition to one's income, lenders also check the borrower's credit history to check how many active loans they have at the same time. A high level of debt indicates that the borrower may have difficulty repaying their debts</li>
+</ul>
+        <div>
+            <p><b>If you want to load then click here</b></p> &nbsp;&nbsp;
+<!--            <a href="{% url 'formpage' %}"><button type="button" class="bt btn-success"> Click here</button></a>-->
+            <button  type="button" class="btn btn-success"><a class="isDisabled" href="{% url 'formpage' %}">click me</a></button>
+        </div>
+ </p>
+
+    </div>
+</div>
+<!--<div class="container">-->
+
+<!--</div>-->
+
+
+<!--<form>-->
+<!--  {% csrf_token %}-->
+<!--{% if user.is_authenticated %}-->
+<!--<li>Hello{{user.username}}</li>-->
+<!--{% endif %}-->
+<!--&lt;!&ndash;  <a href="formpage"><button type="button"> Form</button></a>&ndash;&gt;-->
+<!--  </form>-->
+<!--<div>-->
+
+<!--&lt;!&ndash;    <img class="my_image my_image_padding" src="{% static 'img/form.jpg' %}" alt="welcome" width="100%;">&ndash;&gt;-->
+<!--  <img src="{% static 'img/form.jpg' %}" class="img-fluid" alt="Responsive image">-->
+
+<!--</div>-->
+
+
+{% endblock %}

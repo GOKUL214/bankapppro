@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'home' %}">ABC BANK</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+     {% if user.is_authenticated %}
+     <li class="form_name">Hello  {{user.username}}</li>
+   <button style="cursor: pointer;position: absolute;right: 10px;" type="submit" class="btn btn-danger"><a class="isDisabled" href="{% url 'logout' %}">Logout</a></button>
+      {% endif %}
+
+
+  </div>
+</nav>
+<div class="container">
+
+
+    <h3 style="text-align: center;margin-top: 31px;padding-bottom: 16px;">Form accepted</h3>
+    <a style="text-align: center;position: absolute; right: 741px;" class="btn btn-success" href="{% url 'home' %}">Home</a>
+
+
+</div>
+
+{% endblock %}

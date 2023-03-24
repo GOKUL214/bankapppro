@@ -1,0 +1,21 @@
+.img-fluid{
+    width:100%;
+}
+.isDisabled{
+    color:currentColor;
+
+
+}
+.form_name{
+    color:white;
+    position: absolute;
+    right: 93px;
+}
+.logout{
+position: absolute;
+    right: 100px;
+}
+.headnew{
+text-align:center;
+}
+

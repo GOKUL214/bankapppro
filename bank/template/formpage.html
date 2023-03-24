@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'home' %}">ABC BANK</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+
+  </button>
+    {% if user.is_authenticated %}
+     <li class="form_name">Hello  {{user.username}}</li>
+   <button style="cursor: pointer;position: absolute;right: 10px;" type="submit" class="btn btn-danger"><a class="isDisabled" href="{% url 'logout' %}">Logout</a></button>
+      {% endif %}
+
+
+  </div>
+</nav>
+<div class="container">
+    <h2 style="text-align: center;margin-top: 31px;"><b>LOAN APPLICATION FORM</b> </h2>
+<form method="post">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="">Name</label>
+    <input type="text" class="form-control"  placeholder="Name">
+  </div>
+  <div class="form-group">
+    <label for="">DOB</label>
+    <input type="date" class="form-control"  placeholder="DOB">
+  </div>
+  <div class="form-group">
+    <label for="">AGE</label>
+    <input type="number" class="form-control"  placeholder="AGE">
+  </div>
+  <div class="form-group">
+    <label for="">Gender</label>
+  </div>
+  <div class="form-group">
+    <label for="">Male</label>
+    <input type="radio" name="gender" class="form-control" >
+  </div>
+  <div class="form-group">
+    <label for="">Female</label>
+    <input type="radio" name="gender" class="form-control"  >
+  </div>
+   <div class="form-group">
+    <label for="">Number</label>
+    <input type="text" class="form-control"  placeholder="Number">
+  </div>
+  <div class="form-group">
+    <label for="">Email</label>
+    <input type="email" class="form-control"  placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="">Address</label>
+    <input type="text" class="form-control"  placeholder="Address">
+  </div>
+  <div class="form-group">
+    <label for="">District</label>
+    <select class="form-control" name="district" id="district" onchange="population(this.id,'branch')">
+        <option value="">---Choose---</option>
+        <option value="trivandrum">Trivandrum</option>
+        <option value="kollam">Kollam</option>
+        <option value="alappuzha">Alappuzha</option>
+        <option value="pattanamthitta">Pattanamthitta</option>
+        <option value="idukki">Idukki</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="">Branch</label>
+    <select class="form-control" name="branch" id="branch" >
+
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="">Account type</label>
+    <select class="form-control" name="account" id="" >
+
+        <option value="">-----Choose-----</option>
+        <option value="current">Current</option>
+        <option value="saving">Saving</option>
+
+
+    </select>
+  </div>
+   <div class="form-group">
+    <label for="">Materials provide</label>
+
+    <input type="checkbox" id="debit card" class="form-control">
+    <label for="">Debit card</label><br>
+    <input type="checkbox" id="credit card" class="form-control">
+    <label for="">Credit card</label><br>
+    <input type="checkbox" id="cheque" class="form-control">
+    <label for="">Cheque book</label><br>
+  </div>
+   <div class="form-group">
+
+  <button type="submit" class="btn btn-primary">Submit</button> &nbsp;
+<!--       {% if user.is_authenticated %}-->
+<!--  <button type="submit" class="btn btn-danger"><a class="isDisabled" href="{% url 'logout' %}">Logout</a></button>-->
+<!--       {% endif %}-->
+   </div>
+
+
+
+
+</form>
+  </div>
+<!--<form action="" method="post">-->
+<!--    {% csrf_token %}-->
+<!--    <input type="text" name="name" placeholder="Name"><br>-->
+<!--    <input type="date" name="dob" placeholder="DOB"><br>-->
+<!--    <input type="number" name="age" placeholder="Age"><br>-->
+<!--    <input type="radio" name="gender">-->
+<!--    <label for="">male</label>-->
+<!--    <input type="radio" name="gender" placeholder="female">-->
+<!--     <label for="">female</label><br>-->
+<!--    <input type="number" name="Phone" placeholder="Phone number"><br>-->
+<!--    <input type="email" name="email" placeholder="email"><br>-->
+<!--    <input type="text" name="address" placeholder="Address"><br>-->
+
+<!--    <label for="">Distrct</label>-->
+<!--    <select name="district" id="district" onchange="population(this.id,'branch')">-->
+<!--        <option value="">-&#45;&#45;Choose-&#45;&#45;</option>-->
+<!--        <option value="trivandrum">Trivandrum</option>-->
+<!--        <option value="kollam">Kollam</option>-->
+<!--        <option value="alappuzha">Alappuzha</option>-->
+<!--        <option value="pattanamthitta">Pattanamthitta</option>-->
+<!--        <option value="idukki">Idukki</option>-->
+<!--    </select><br>-->
+<!--    <label for="">Branch</label>-->
+<!--    <select name="branch" id="branch">-->
+
+<!--    </select><br>-->
+<!--    <label for="">Account type</label>-->
+<!--    <select name="account" id="account">-->
+<!--        <option value="">-&#45;&#45;&#45;&#45;Choose-&#45;&#45;&#45;&#45;</option>-->
+<!--        <option value="current">Current</option>-->
+<!--        <option value="saving">Saving</option>-->
+<!--    </select><br>-->
+
+<!--    <label for="">Materials provide</label><br>-->
+<!--    <input type="checkbox" id="debit card">-->
+<!--    <label for="">Debit card</label><br>-->
+<!--    <input type="checkbox" id="credit card">-->
+<!--    <label for="">Credit card</label><br>-->
+<!--    <input type="checkbox" id="cheque">-->
+<!--    <label for="">Cheque book</label><br>-->
+<!--    <button type="submit"><a href="submit">submit</a> </button> &nbsp-->
+<!--    <button type="button"><a href="">Logout</a> </button>-->
+
+<!--</form>-->
+
+
+  <script>
+        function population(s1,s2)
+        {
+            var s1=document.getElementById(s1);
+            var s2=document.getElementById(s2);
+            s2.innerHTML="";
+            if(s1.value=='trivandrum')
+            {
+                var optionArray=['---choose----|----Choose----','varkala|Varkala','madavoor|Madavoor','palayam|Palayam','nedumangadu|Nedumangadu','vembayam|Vembayam'];
+            }
+            else if(s1.value=='kollam')
+            {
+                 var optionArray=['---choose----|----Choose----','neendakara|Neendakara','kollam|Kollam','chinnakada|Chinnakada','chadayamangalam|Chadayamangalam','paripally|Paripally'];
+            }
+            else if(s1.value=='alappuzha')
+            {
+                var optionArray=['---choose----|----Choose----','aroor|Aroor','alappuzha|Alappuzha','ambalappuzha|Ambalappuzha','chembakulam|Chembakulam','cherthala|Cherthala'];
+
+            }
+            else if(s1.value=='pattanamthitta')
+            {
+                var optionArray=['---choose----|----Choose----','adoor|Adoor','cherthala|Cherthala','ayiroor|Ayiroor','chittar|Chittar','chettimukku|Chettimukku'];
+
+            }
+            else if(s1.value=='idukki')
+            {
+                var optionArray=['---choose----|----Choose----','adimali|Adimali','chenkara|Chenkara','elappara|Elappara','devikulam|Devikulam','anakkara|Anakkara'];
+
+            }
+            for(var option in optionArray)
+            {
+                var pair=optionArray[option].split("|");
+                var newoption=document.createElement('option');
+                newoption.value=pair[0];
+                newoption.innerHTML=pair[1];
+                s2.options.add(newoption)
+
+            }
+
+        }
+
+    </script>
+
+{% endblock %}
